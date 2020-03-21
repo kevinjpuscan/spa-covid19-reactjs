@@ -1,5 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 
+import Spinner from "../Spinner";
+import ItemSearch from "../ItemSearch";
+
+import {SearchContext} from '../../store/context/SearchContext';
 
 import {
   Container,
@@ -8,16 +12,18 @@ import {
   ContainerEmpty
 } from "./styles";
 
-export default function SearchContainer(props) {
- let {countries,toggleClose}=props;
+export default function SearchContainer({toggleClose}) {
+  const { loading, countries } = useContext(SearchContext);
   return (
     <Container>
-      
+      {loading ? (
+        <Spinner style={{ marginTop: "10px" }} />
+      ) : (
         <ContainerResult>
           {countries.length > 0 ? (
             countries.map(country => (
-              <ContainerItem key={country.Slug} onClick={toggleClose}>
-                {country.Country}
+              <ContainerItem onClick={toggleClose}>
+                <ItemSearch slug={country.Slug} country={country.Slug} />
               </ContainerItem>
             ))
           ) : (
@@ -26,7 +32,7 @@ export default function SearchContainer(props) {
             </ContainerEmpty>
           )}
         </ContainerResult>
-      
+      )}
     </Container>
   );
 }

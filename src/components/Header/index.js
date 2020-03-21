@@ -1,12 +1,11 @@
-import React from "react";
+import React,{useContext} from "react";
 
 //import { Link } from "react-router-dom";
 
 import { Search,ExitToApp } from "@material-ui/icons";
 
 import SearchContainer from "../Search";
-
-//import { SearchContext } from "../../store/context/SearchContext";
+import { SearchContext } from "../../store/context/SearchContext";
 
 
 
@@ -26,267 +25,9 @@ function Header() {
   
 
 
-//  const { searchAction } = useContext(SearchContext);
+ const { searchAction } = useContext(SearchContext);
+
  
-  const searchAction = term=>{
-    setCountries([{
-      "Country": "Republic of the Congo",
-      "Slug": "republic-of-the-congo",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Reunion",
-      "Slug": "reunion",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Romania",
-      "Slug": "romania",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Russia",
-      "Slug": "russia",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Rwanda",
-      "Slug": "rwanda",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Saint Lucia",
-      "Slug": "saint-lucia",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Saint Vincent and the Grenadines",
-      "Slug": "saint-vincent-and-the-grenadines",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "San Marino",
-      "Slug": "san-marino",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Saudi Arabia",
-      "Slug": "saudi-arabia",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Senegal",
-      "Slug": "senegal",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Serbia",
-      "Slug": "serbia",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Seychelles",
-      "Slug": "seychelles",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Singapore",
-      "Slug": "singapore",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Slovakia",
-      "Slug": "slovakia",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Slovenia",
-      "Slug": "slovenia",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Somalia",
-      "Slug": "somalia",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "South Africa",
-      "Slug": "south-africa",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Spain",
-      "Slug": "spain",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Sri Lanka",
-      "Slug": "sri-lanka",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Sudan",
-      "Slug": "sudan",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Suriname",
-      "Slug": "suriname",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Sweden",
-      "Slug": "sweden",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Switzerland",
-      "Slug": "switzerland",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Taiwan*",
-      "Slug": "taiwan*",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Tanzania",
-      "Slug": "tanzania",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Thailand",
-      "Slug": "thailand",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "The Bahamas",
-      "Slug": "the-bahamas",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "The Gambia",
-      "Slug": "the-gambia",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Togo",
-      "Slug": "togo",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Trinidad and Tobago",
-      "Slug": "trinidad-and-tobago",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Tunisia",
-      "Slug": "tunisia",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Turkey",
-      "Slug": "turkey",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "Ukraine",
-      "Slug": "ukraine",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "United Arab Emirates",
-      "Slug": "united-arab-emirates",
-      "Provinces": [
-          ""
-      ]
-  },
-  {
-      "Country": "United Kingdom",
-      "Slug": "united-kingdom",
-      "Provinces": [
-          "Channel Islands",
-          "Gibraltar",
-          "United Kingdom",
-          "Cayman Islands",
-          "Montserrat",
-          "Bermuda"
-      ]
-  },
-  {
-      "Country": "Uruguay",
-      "Slug": "uruguay",
-      "Provinces": [
-          ""
-      ]
-  }]);
-  }
 
   const handleSearch = e => {
     setTerm(e.target.value);
@@ -321,7 +62,7 @@ function Header() {
         />
           <Input placeholder="Buscar" value={term} onChange={handleSearch} />
 
-          {term.length > 0 && <SearchContainer toggleClose={toggleClose} countries={countries} />}
+          {term.length > 0 && <SearchContainer toggleClose={toggleClose} />}
         </ContainerSearch>
         <ContainerOpcitions>
         <ExitToApp

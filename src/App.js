@@ -1,38 +1,18 @@
 import React from 'react';
 import './App.css';
 
-import Header from './components/Header';
+import Routes from "./routes";
 
-import {
-  Container,
-  Aside,
-  ContainerBody,
-  ContainerChart,
-  ContainerFooter
-} from "./styles/styles";
+import SearchContextProvider from "./store/context/SearchContext";
+
+
 
 function App() {
   return (
     <div className="App">
-
-      <Header />
-      <Container>
-  
-      <Aside>
-        
-        <ContainerBody>
-          
-        </ContainerBody>
-        <ContainerFooter>
-          Información - AyudaPrensa - API - Empleo - Privacidad - Condiciones -
-          Directorio - Perfiles - Hashtags - Idioma
-        </ContainerFooter>
-      </Aside>
-
-      <ContainerChart>
-       
-      </ContainerChart>
-    </Container>
+    <SearchContextProvider>
+        <Routes />
+    </SearchContextProvider>
     </div>
   );
 }

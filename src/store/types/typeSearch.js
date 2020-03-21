@@ -1,0 +1,2 @@
+export const SEARCH_COUNTRY = "SEARCH_COUNTRY";
+export const SEARCH_FINISH = "SEARCH_FINISH";
