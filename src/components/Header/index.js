@@ -22,6 +22,7 @@ import {
 function Header() {
   const [term, setTerm] = React.useState("");
   const [countries,setCountries]=React.useState("");
+  const [countrySelect,setCountrySelect]=React.useState("");
   
 
 
@@ -297,7 +298,7 @@ function Header() {
     //eslint-disable-next-line
   }, [term]);
 
-  const toggleClose = () => {
+  const toggleClose = function(){
     setTerm("");
   };
   return (
