@@ -1,7 +1,19 @@
-import { SEARCH_COUNTRY, SEARCH_FINISH } from "../types/typeSearch";
+import {LOADED_COUNTRIES, COUNTRY_SELECTED,SEARCH_COUNTRY, SEARCH_FINISH } from "../types/typeSearch";
 
 export const searchReducer = (state, action) => {
   switch (action.type) {
+    case LOADED_COUNTRIES:
+      return {
+        ...state,
+        Countries: action.payload,
+        loading: true
+      };
+    case COUNTRY_SELECTED:
+      return {
+        ...state,
+        countrySelected: action.payload,
+        loading: true
+      };
     case SEARCH_COUNTRY:
       return {
         ...state,
@@ -11,7 +23,7 @@ export const searchReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        countries: action.payload
+        recommendedCountries: action.payload,
       };
     default:
       return state;
