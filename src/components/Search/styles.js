@@ -54,7 +54,7 @@ export const ContainerResult = styled.div`
 export const ContainerItem = styled.div`
   width: 100%;
   display: flex;
-  padding: 12px 12px;
+  padding: 0px 0px;
   z-index: 1;
   border-bottom: 1px solid #e6e6e6;
   cursor: pointer;
@@ -66,4 +66,5 @@ export const ContainerEmpty = styled(ContainerItem)`
   color: #c2c2c2;
   font-size: 12px;
   font-weight: bold;
+  padding: 12px 12px;
 `;

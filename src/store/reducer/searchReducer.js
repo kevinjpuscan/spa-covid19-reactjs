@@ -5,7 +5,7 @@ export const searchReducer = (state, action) => {
     case LOADED_COUNTRIES:
       return {
         ...state,
-        Countries: action.payload,
+        countries: action.payload,
         loading: true
       };
     case COUNTRY_SELECTED:

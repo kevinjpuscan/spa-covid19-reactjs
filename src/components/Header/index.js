@@ -18,22 +18,25 @@ import {
   ContainerOpcitions
 } from "./styles";
 
+
+
 function Header() {
   const [term, setTerm] = React.useState("");
-  const [countries,setCountries]=React.useState("");
-  const [countrySelect,setCountrySelect]=React.useState("");
-  
+  const [savedCountries, setsavedCountries] = React.useState("");
 
+  const { searchAction,loadCountries } = useContext(SearchContext);
 
- const { searchAction } = useContext(SearchContext);
-
- 
 
   const handleSearch = e => {
     setTerm(e.target.value);
   };
 
+
   React.useEffect(() => {
+    loadCountries();
+  }, [savedCountries]);
+
+    React.useEffect(() => {
     searchAction(term);
 
     //eslint-disable-next-line

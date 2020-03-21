@@ -3,6 +3,8 @@ import React from 'react';
 import Header from '../../components/Header';
 
 
+
+
 import {
   Container,
   Aside,
@@ -12,6 +14,8 @@ import {
 } from "./styles";
 
 function Main() {
+
+
   return (
 
     <div>
