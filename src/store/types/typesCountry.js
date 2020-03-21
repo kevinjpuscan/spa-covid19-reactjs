@@ -1,0 +1,2 @@
+export const GET_COUNTRY='GET_COUNTRY';
+export const FINISH_COUNTRY='FINISH_COUNTRY';

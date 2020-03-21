@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{useContext} from 'react';
 
 import Header from '../../components/Header';
 
-
+import {CountryContext} from '../../store/context/CountryContext';
 
 
 import {
@@ -13,8 +13,18 @@ import {
   ContainerFooter
 } from "./styles";
 
-function Main() {
+function Main({ match }) {
+  const {loadDataCountryAction} = useContext(CountryContext) ;
 
+  React.useEffect(() => {
+    const { country } = match.params;
+    loadDataCountryAction(country);
+    return () => {
+      //reset();
+    };
+
+    //eslint-disable-next-line
+  }, [match.params]);
 
   return (
 
@@ -34,7 +44,7 @@ function Main() {
         </Aside>
 
         <ContainerChart>
-        
+          <h1>{match.params.country}</h1>  
         </ContainerChart>
       </Container>
       </div>
