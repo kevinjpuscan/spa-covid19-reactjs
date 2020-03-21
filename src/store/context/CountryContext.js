@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from "react";
 import apiGet from "../../service/api";
 
 import {countryReducer} from "../reducer/countryReducer";
-import {GET_COUNTRY,FINISH_COUNTRY} from "../types/typesCountry";
+import {GET_COUNTRY,FINISH_COUNTRY,RESET_COUNTRY} from "../types/typesCountry";
 
 export const CountryContext = createContext();
 
@@ -45,10 +45,8 @@ export default function CountryContextProvider({ children }) {
                 deaths:caseDeaths.data,
                 recovered:caseRecovered.data
             }
-            
-            console.log(data);
 
-          dispatch({ type:FINISH_COUNTRY, payload: [] });
+          dispatch({ type:FINISH_COUNTRY, payload: data });
        
         }
       } catch (error) {
@@ -56,6 +54,10 @@ export default function CountryContextProvider({ children }) {
       }
     };
   
+    function resetCountry(){
+        dispatch({ type: RESET_COUNTRY });
+      };
+
     return (
       <CountryContext.Provider
         value={{ 
@@ -64,7 +66,8 @@ export default function CountryContextProvider({ children }) {
           deaths:state.deaths,
           recovered:state.recovered,
           loading: state.loading, 
-          loadDataCountryAction }}
+          loadDataCountryAction,
+          resetCountry }}
       >
         {children}
       </CountryContext.Provider>

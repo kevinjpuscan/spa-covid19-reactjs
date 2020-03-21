@@ -1,6 +1,7 @@
 import React,{useContext} from 'react';
 
 import Header from '../../components/Header';
+import Spinner from '../../components/Spinner';
 
 import {CountryContext} from '../../store/context/CountryContext';
 
@@ -14,13 +15,26 @@ import {
 } from "./styles";
 
 function Main({ match }) {
-  const {loadDataCountryAction} = useContext(CountryContext) ;
+  const {
+    country,
+    confirmed,
+    deaths,
+    recovered,
+    loading,
+    loadDataCountryAction,
+    resetCountry
+  } = useContext(CountryContext) ;
 
   React.useEffect(() => {
     const { country } = match.params;
-    loadDataCountryAction(country);
+    resetCountry();
+
+    if(country){
+      loadDataCountryAction(country);
+    }
+    
     return () => {
-      //reset();
+
     };
 
     //eslint-disable-next-line
@@ -35,7 +49,15 @@ function Main({ match }) {
         <Aside>
           
           <ContainerBody>
-            
+          {
+            loading ? 
+            (
+              <Spinner style={{ marginTop: "100px" }} />
+            ):
+            (
+              <h3>{match.params.country}</h3>  
+            )
+          }
           </ContainerBody>
           <ContainerFooter>
             Información - AyudaPrensa - API - Empleo - Privacidad - Condiciones -
@@ -44,7 +66,22 @@ function Main({ match }) {
         </Aside>
 
         <ContainerChart>
-          <h1>{match.params.country}</h1>  
+          {
+            loading ? 
+            (
+              <Spinner style={{ marginTop: "100px" }} />
+            ):
+            (
+              <div>
+                <h1>{country.name}</h1>
+                <p>Casos Confirmados: {country.confirmed}</p>  
+                <p>Casos Fallecidos: {country.deaths}</p>  
+                <p>Casos Recuperados: {country.recovered}</p>  
+              </div>
+              
+            )
+          }
+          
         </ContainerChart>
       </Container>
       </div>
