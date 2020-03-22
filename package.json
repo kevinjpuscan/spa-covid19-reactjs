@@ -16,6 +16,9 @@
     "react-scripts": "3.4.0",
     "styled-components": "^5.0.0"
   },
+  "devDependencies": {
+    "@babel/compat-data": "~7.8.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
