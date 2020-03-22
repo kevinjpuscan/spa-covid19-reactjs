@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 
 import Header from '../../components/Header';
 import Spinner from '../../components/Spinner';
+import Detail from '../../components/Detail';
 
 import {CountryContext} from '../../store/context/CountryContext';
 
@@ -55,7 +56,7 @@ function Main({ match }) {
               <Spinner style={{ marginTop: "100px" }} />
             ):
             (
-              <h3>{match.params.country}</h3>  
+              <Detail country={country}/> 
             )
           }
           </ContainerBody>
@@ -72,13 +73,7 @@ function Main({ match }) {
               <Spinner style={{ marginTop: "100px" }} />
             ):
             (
-              <div>
-                <h1>{country.name}</h1>
-                <p>Casos Confirmados: {country.confirmed}</p>  
-                <p>Casos Fallecidos: {country.deaths}</p>  
-                <p>Casos Recuperados: {country.recovered}</p>  
-              </div>
-              
+              <p></p>
             )
           }
           
