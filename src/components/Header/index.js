@@ -1,8 +1,10 @@
 import React,{useContext} from "react";
 
-//import { Link } from "react-router-dom";
+import { Redirect} from "react-router-dom";
 
-import { Search,ExitToApp } from "@material-ui/icons";
+import { Search} from "@material-ui/icons";
+import GitHubIcon from '@material-ui/icons/GitHub';
+
 
 import SearchContainer from "../Search";
 import { SearchContext } from "../../store/context/SearchContext";
@@ -31,6 +33,8 @@ function Header() {
     setTerm(e.target.value);
   };
 
+ 
+
 
   React.useEffect(() => {
     loadCountries();
@@ -49,7 +53,7 @@ function Header() {
     <Nav>
       <Container>
         <Logo href="/">
-          COVIT19
+          COVID19
         </Logo>
         <ContainerSearch>
           <Search
@@ -68,14 +72,17 @@ function Header() {
           {term.length > 0 && <SearchContainer toggleClose={toggleClose} />}
         </ContainerSearch>
         <ContainerOpcitions>
-        <ExitToApp
-            style={{
-              color: "#2c2c2c",
-              fontSize: 30,
-              marginLeft: 15,
-              cursor: "pointer"
-            }}
-          />
+          <a href="https://github.com/kevinjpuscan/spa-covid19-reactjs">
+            <GitHubIcon 
+              style={{
+                color: "#2c2c2c",
+                fontSize: 30,
+                marginLeft: 15,
+                cursor: "pointer"
+              }}
+            />
+          </a>
+        
         </ContainerOpcitions>
       </Container>
     </Nav>
