@@ -1,5 +1,5 @@
 
-let baseURL= process.env.REACT_APP_API_URL;
+let baseURL= "https://api.covid19api.com/";
 
 async function apiGet(endPoint) {
     try {

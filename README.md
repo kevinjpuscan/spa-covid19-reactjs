@@ -8,9 +8,8 @@ Single Page Applications desarrollada con ReactJs, consume información de la [*
 ## Getting started
 1. Clonar el repositorio.
 2. Instalar dependencias de npm `npm install`
-3. Copiar el archivo `.env.example` y pegar como `.env` 
-4. Ejecutar `npm run start`
-5. Abrir en el navegador [http//localhost:3000/](http://localhost:3000)
+3. Ejecutar `npm run start`
+4. Abrir en el navegador [http//localhost:3000/](http://localhost:3000)
 
 
 ## License
