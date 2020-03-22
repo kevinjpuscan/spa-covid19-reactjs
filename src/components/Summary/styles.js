@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Table = styled.table`
     width:100%;
     border: 1px solid #e6e6e6;
-    border-radius: 15px;
+    border-radius: 0px 0px 15px 15px;
     background-color:white;
     margin-bottom:50px;
 `;
@@ -13,7 +13,6 @@ export const Head = styled.tr`
     border: 1px solid #0e89f8;
     color:white;
     text-align:center;
-    border-radius: 15px;
     padding:0;
 `;
 
