@@ -33,6 +33,7 @@ export const Aside = styled.div`
 
     grid-column: 2 / 3;
   }
+
 `;
 
 export const ContainerTitle = styled.div`
@@ -47,6 +48,7 @@ export const ContainerTitle = styled.div`
 
 export const ContainerBody = styled.div`
   width: 100%;
+  max-width: 100%;
   display: flex;
   background: #fff;
   border: 1px solid #e6e6e6;
@@ -54,10 +56,12 @@ export const ContainerBody = styled.div`
   padding: 16px 24px;
   font: 400 14px Arial;
   margin-bottom: 20px;
-  height: 120px;
+  height: 250px;
+  margin-bottom:15px;
 
   @media (max-width: 640px) {
     margin-bottom: 0;
+    height: 250px;
   }
 
   @media (min-width: 1000px) {
@@ -78,7 +82,8 @@ export const ContainerBody = styled.div`
     span {
       font-size: 12px;
     }
-    height: 120px;
+    height: 250px;
+    margin-bottom:25px;
     ::-webkit-scrollbar {
       background: transparent;
     }

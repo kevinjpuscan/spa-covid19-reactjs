@@ -7,6 +7,7 @@ export const ContainerDetail = styled.div`
     align-items: flex-start;
     overflow: auto;
     width: 100%;
+    max-with:100%;
     max-height: 100%;
 `;
 

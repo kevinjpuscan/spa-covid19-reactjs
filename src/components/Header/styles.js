@@ -46,7 +46,7 @@ export const ContainerSearch = styled.div`
   position: relative;
 
   @media (max-width: 500px) {
-    display: none;
+    
   }
 `;
 
