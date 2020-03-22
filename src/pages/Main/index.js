@@ -1,8 +1,11 @@
 import React,{useContext} from 'react';
 
+
 import Header from '../../components/Header';
 import Spinner from '../../components/Spinner';
 import Detail from '../../components/Detail';
+import ChartLine from '../../components/ChartLine';
+import Summary from '../../components/Summary';
 
 import {CountryContext} from '../../store/context/CountryContext';
 
@@ -22,7 +25,9 @@ function Main({ match }) {
     deaths,
     recovered,
     loading,
+    summary,
     loadDataCountryAction,
+    loadSummaryAction,
     resetCountry
   } = useContext(CountryContext) ;
 
@@ -32,6 +37,8 @@ function Main({ match }) {
 
     if(country){
       loadDataCountryAction(country);
+    }else{
+      loadSummaryAction();
     }
     
     return () => {
@@ -51,29 +58,49 @@ function Main({ match }) {
           
           <ContainerBody>
           {
-            loading ? 
-            (
-              <Spinner style={{ marginTop: "100px" }} />
-            ):
-            (
-              <Detail country={country}/> 
+            match.params.country?(
+              loading ? 
+              (
+                <Spinner style={{ marginTop: "100px" }} />
+              ):
+              (
+                <Detail country={country}/> 
+              )
+            ):(
+              <h2 style={{
+                textAlign:'center',
+                color:'gray',
+                marginTop:'60px'
+                }}>
+              Puede buscar un país en específico para ver más detalle
+              </h2>
             )
+            
           }
           </ContainerBody>
           <ContainerFooter>
-            Información - AyudaPrensa - API - Empleo - Privacidad - Condiciones -
-            Directorio - Perfiles - Hashtags - Idioma
+            Desarrollado por KevinPuscán
           </ContainerFooter>
         </Aside>
 
         <ContainerChart>
           {
+            match.params.country?(
             loading ? 
             (
               <Spinner style={{ marginTop: "100px" }} />
             ):
             (
-              <p></p>
+              <ChartLine confirmed={confirmed} deaths={deaths} recovered={recovered}></ChartLine>
+            )):(
+              loading?
+              (
+                <Spinner style={{ marginTop: "100px" }} />
+              ):
+              (
+                <Summary summary={summary}/>
+              )
+              
             )
           }
           

@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from "react";
 import apiGet from "../../service/api";
 
 import {countryReducer} from "../reducer/countryReducer";
-import {GET_COUNTRY,FINISH_COUNTRY,RESET_COUNTRY} from "../types/typesCountry";
+import {GET_COUNTRY,FINISH_COUNTRY,RESET_COUNTRY,GET_SUMMARY,FINISH_SUMMARY} from "../types/typesCountry";
 
 export const CountryContext = createContext();
 
@@ -15,6 +15,7 @@ export default function CountryContextProvider({ children }) {
       confirmed:[],
       deaths:[],
       recovered:[],
+      summary:[],
 
       loading: false
     };
@@ -54,6 +55,17 @@ export default function CountryContextProvider({ children }) {
       }
     };
   
+    async function loadSummaryAction(){
+      dispatch({ type: GET_SUMMARY });
+      try {
+        let summary = await apiGet('summary');
+        dispatch({ type:FINISH_SUMMARY, payload: summary.data.Countries });
+      } catch (error) {
+        console.log(error);
+      }
+
+    };
+
     function resetCountry(){
         dispatch({ type: RESET_COUNTRY });
       };
@@ -65,8 +77,10 @@ export default function CountryContextProvider({ children }) {
           confirmed:state.confirmed,
           deaths:state.deaths,
           recovered:state.recovered,
+          summary:state.summary,
           loading: state.loading, 
           loadDataCountryAction,
+          loadSummaryAction,
           resetCountry }}
       >
         {children}

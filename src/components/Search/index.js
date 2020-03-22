@@ -8,12 +8,11 @@ import {SearchContext} from '../../store/context/SearchContext';
 import {
   Container,
   ContainerResult,
-  ContainerItem,
   ContainerEmpty
 } from "./styles";
 
 export default function SearchContainer({toggleClose}) {
-  const { loading, countries,recommendedCountries} = useContext(SearchContext);
+  const { loading,recommendedCountries} = useContext(SearchContext);
   return (
     <Container>
       {loading ? (

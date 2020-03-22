@@ -22,7 +22,7 @@ import {
 
 function Header() {
   const [term, setTerm] = React.useState("");
-  const [savedCountries, setsavedCountries] = React.useState("");
+  const [savedCountries] = React.useState("");
 
   const { searchAction,loadCountries } = useContext(SearchContext);
 

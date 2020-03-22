@@ -1,8 +1,6 @@
-import {GET_COUNTRY,FINISH_COUNTRY,RESET_COUNTRY} from "../types/typesCountry";
+import {GET_COUNTRY,FINISH_COUNTRY,RESET_COUNTRY,GET_SUMMARY,FINISH_SUMMARY} from "../types/typesCountry";
 
 export const countryReducer = (state, action) => {
-  console.log(action.payload);
-  console.log(action.type);
   switch (action.type) {
     case GET_COUNTRY:
       return {
@@ -18,6 +16,18 @@ export const countryReducer = (state, action) => {
         confirmed: action.payload.confirmed,
         deaths: action.payload.deaths,
         recovered: action.payload.recovered
+      };
+    case GET_SUMMARY:
+      return {
+        ...state,
+        loading: true
+      };
+
+    case FINISH_SUMMARY:
+      return {
+        ...state,
+        loading: false,
+        summary:action.payload,
       };
     
     case RESET_COUNTRY:
