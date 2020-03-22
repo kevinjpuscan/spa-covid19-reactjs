@@ -59,8 +59,12 @@ export default function CountryContextProvider({ children }) {
       dispatch({ type: GET_SUMMARY });
       try {
         let summary = await apiGet('summary');
-        console.log(JSON.parse(summary.data).Countries);
-        dispatch({ type:FINISH_SUMMARY, payload: JSON.parse(summary.data).Countries});
+        let data=summary.data.Countries;
+        if(!data){
+          data=console.log(JSON.parse(summary.data).Countries);
+        }
+  
+        dispatch({ type:FINISH_SUMMARY, payload: data});
       } catch (error) {
         console.log(error);
       }
