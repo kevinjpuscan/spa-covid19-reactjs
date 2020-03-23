@@ -23,10 +23,13 @@ export const ElementHead = styled.th`
     margin:0px;
 `;
 
-export const ElementFirst= styled.td`
+export const ElementFirst= styled.td`  
     text-align:left;
     padding:10px 15px;
     font-weight:bold;
+    
+
+
 `;
 
 export const Element= styled.td`
@@ -34,3 +37,15 @@ export const Element= styled.td`
     padding:10px 15px;
 `;
 
+export const IncrementSpan=styled.span`
+    border-radius:5px;
+    padding:3px;
+    font-size:0.7em;
+    background-color:#e6e6e6;
+    color:gray;
+    font-weight:bold;
+
+    ${Element}:hover & {
+      
+      }
+`;
